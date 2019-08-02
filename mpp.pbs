@@ -1,0 +1,25 @@
+#!/bin/bash --login
+#PBS -N courseworkMPP
+#PBS -l select=2:ncpus=36
+#PBS -l place=excl
+#PBS -l walltime=00:15:00
+#PBS -A d167-s1890706
+cd $PBS_O_WORKDIR
+module load mpt
+module load intel-compilers-17
+mpiexec_mpt -np 1 -ppn 72 ./imagempi ./edgenew768x768.pgm test1
+mpiexec_mpt -np 2 -ppn 72 ./imagempi ./edgenew768x768.pgm test2
+mpiexec_mpt -np 4 -ppn 72 ./imagempi ./edgenew768x768.pgm test4
+mpiexec_mpt -np 8 -ppn 72 ./imagempi ./edgenew768x768.pgm test8
+mpiexec_mpt -np 16 -ppn 72 ./imagempi ./edgenew768x768.pgm test16
+mpiexec_mpt -np 32 -ppn 72 ./imagempi ./edgenew768x768.pgm test32
+mpiexec_mpt -np 48 -ppn 72 ./imagempi ./edgenew768x768.pgm test48
+mpiexec_mpt -np 64 -ppn 72 ./imagempi ./edgenew768x768.pgm test64
+mpiexec_mpt -np 128 -ppn 72 ./imagempi ./edgenew768x768.pgm test128
+
+
+
+
+
+
+72
